@@ -27,8 +27,9 @@ export const useUsuarios = () => {
 
         if (resp.data.data.length > 0) {
             setUsuarios(resp.data.data) //establecer los usuarios
-            paginaRef.current++;
+            //paginaRef.current++;
         } else {
+            paginaRef.current--;
             alert('NO HAY MAS REGISTROS');
         }
         /* .then(resp => {
@@ -36,12 +37,27 @@ export const useUsuarios = () => {
              setUsuarios(resp.data.data) //establecer los usuarios
          })
          .catch(console.log)*/
-         
+
+    }
+
+    const paginaSiguiente = () => {
+        paginaRef.current++;
+        cargarUsuarios();
+    }
+
+    const paginaAnterior = () => {
+        
+        if (paginaRef.current > 1) {
+            paginaRef.current--;
+            cargarUsuarios();
+        } 
+
     }
 
     return {
         usuarios,
-        cargarUsuarios
+        paginaSiguiente,
+        paginaAnterior
     }
 
 
