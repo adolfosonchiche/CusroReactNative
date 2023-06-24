@@ -1,41 +1,9 @@
-import { useEffect, useRef, useState } from "react"
-import { ReqResApi } from "../api/ReqRes"
-import { ReqRespListado, Usuario } from '../interfaces/reqRes';
+import { useUsuarios } from '../hooks/useUsuarios';
+import {  Usuario } from '../interfaces/reqRes';
 
 export const Usuarios = () => {
 
-    const [usuarios, setUsuarios] = useState<Usuario[]>([]);
-
-    //useState para las paginacion recibe como valor inicial la pagina 1
-    const paginaRef = useRef(0);
-
-    useEffect(() => {
-        cargarUsuarios();
-
-    }, [])
-
-
-    //funcion para realizar varias veces la peticion http
-    const cargarUsuarios = async () => {
-        //llamado al API  por axios tambien se puede hacer con fetch
-        const resp = await ReqResApi.get<ReqRespListado>('/users', {
-            params: {
-                page: paginaRef.current
-            }
-        })
-        console.log(resp.data)
-        if (resp.data.data.length > 0) {
-            setUsuarios(resp.data.data) //establecer los usuarios
-            paginaRef.current++;
-        } else {
-            alert('NO HAY MAS REGISTROS');
-        }
-        /* .then(resp => {
-             //console.log(resp.data.data)
-             setUsuarios(resp.data.data) //establecer los usuarios
-         })
-         .catch(console.log)*/
-    }
+    const { usuarios, cargarUsuarios } = useUsuarios();
 
     const renderItem = (usuario: Usuario) => {
         return (
@@ -71,6 +39,11 @@ export const Usuarios = () => {
                 </tbody>
             </table>
 
+            <button className="btn btn-primary"
+                onClick={cargarUsuarios} >
+                Anteriores
+            </button>
+                    &nbsp;
             <button className="btn btn-primary"
                 onClick={cargarUsuarios} >
                 siguientes
