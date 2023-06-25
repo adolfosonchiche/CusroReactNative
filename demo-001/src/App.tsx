@@ -1,5 +1,6 @@
 import React from 'react'
-import { Usuarios } from './components/Usuarios';
+import { Formularios } from './components/Formularios';
+// import { Usuarios } from './components/Usuarios';
 // import { Login } from './components/Login';
 // import { ContadorConHook } from './components/ContadorConHook';
 // import { Contador } from './components/Contador';
@@ -24,7 +25,9 @@ const App = () => {
 
       {/* <Login/> */}
 
-      <Usuarios/>
+      {/* <Usuarios/> */}
+
+      <Formularios/>
 
     </div>
   )
