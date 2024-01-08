@@ -12,14 +12,21 @@ const ContadorScreen = () => {
         Contador: { contador }
       </Text>
 
-    <TouchableOpacity
+    <TouchableOpacity style={ style.fabLocationBr }
     onPress={ () => setcontador( contador + 1 ) }
     >
-      <View style={ style.increment }>
-        <Text style = {  style.botton }>+1</Text>
+      <View style={ style.fab }>
+        <Text style={ style.fabText } >+1</Text>
       </View>
     </TouchableOpacity>
 
+    <TouchableOpacity style={ style.fabLocationBl }
+    onPress={ () => setcontador( contador - 1 ) }
+    >
+      <View style={ style.fab }>
+        <Text style={ style.fabText } >-1</Text>
+      </View>
+    </TouchableOpacity>
     </View>
   )
 }
@@ -37,14 +44,33 @@ const style = StyleSheet.create({
     fontSize: 40,
     top: 100
   },
-  increment: {
-    backgroundColor:'blue',
-    borderRadius: 100
+  fabLocationBl: {
+    //posicion del boton incrementar
+    position: 'absolute',
+    bottom: 20,
+    left: 20
   },
-  botton: {
-    justifyContent: 'center',
-    fontSize: 30,
-  }
+  fabLocationBr: {
+    //posicion del boton incrementar
+    position: 'absolute',
+    bottom: 20,
+    right: 20
+  },
+  fab: {
+    backgroundColor: '#5856D6',
+    width: 60,
+    height: 60,
+    borderRadius: 100,
+    justifyContent: 'center'
+  },
+  fabText: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    //textAlign: 'center'
+    alignSelf: 'center'
+  },
+  
 })
 
 export default ContadorScreen;
