@@ -4,13 +4,16 @@ import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 //interface para las propiedades a recibir en el componente
 interface Props {
     title: string;
+    position?: 'br' | 'bl';
+    onPress: () => void;
 }
 
-export const Fab = ({ title }: Props) => {
+export const Fab = ({ title, position = 'br' , onPress }: Props) => {
   return (
     <>
-    <TouchableOpacity style={ style.fabLocationBr }
-    onPress={ () => console.log( 'contador' + 1 ) }
+    <TouchableOpacity 
+        style={ (position === 'br') ? style.fabLocationBr : style.fabLocationBl }
+        onPress={ onPress }
     >
       <View style={ style.fab }>
         <Text style={ style.fabText } > { title } </Text>
