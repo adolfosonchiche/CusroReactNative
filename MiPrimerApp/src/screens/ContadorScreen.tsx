@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, {useState} from 'react';
+import { Fab } from '../components/Fab';
 
 const ContadorScreen = () => {
 
@@ -12,21 +13,17 @@ const ContadorScreen = () => {
         Contador: { contador }
       </Text>
 
-    <TouchableOpacity style={ style.fabLocationBr }
-    onPress={ () => setcontador( contador + 1 ) }
-    >
-      <View style={ style.fab }>
-        <Text style={ style.fabText } >+1</Text>
-      </View>
-    </TouchableOpacity>
+    <Fab 
+      title = "+1"
+    />
 
-    <TouchableOpacity style={ style.fabLocationBl }
+    {/* <TouchableOpacity style={ style.fabLocationBl }
     onPress={ () => setcontador( contador - 1 ) }
     >
       <View style={ style.fab }>
         <Text style={ style.fabText } >-1</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
     </View>
   )
 }
@@ -44,32 +41,7 @@ const style = StyleSheet.create({
     fontSize: 40,
     top: 100
   },
-  fabLocationBl: {
-    //posicion del boton incrementar
-    position: 'absolute',
-    bottom: 20,
-    left: 20
-  },
-  fabLocationBr: {
-    //posicion del boton incrementar
-    position: 'absolute',
-    bottom: 20,
-    right: 20
-  },
-  fab: {
-    backgroundColor: '#5856D6',
-    width: 60,
-    height: 60,
-    borderRadius: 100,
-    justifyContent: 'center'
-  },
-  fabText: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    //textAlign: 'center'
-    alignSelf: 'center'
-  },
+  
   
 })
 
