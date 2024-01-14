@@ -28,7 +28,7 @@ y ya podemos ejecutar el comando para iniciar el proyecto para ios
 
 
 
-o podemos iniciar metro para seleccionar un tipo de dispositivo:
+o podemos iniciar metro para seleccionar un tipo de dispositivo (ubuntu):
 -->  npx react-native start
 
 
