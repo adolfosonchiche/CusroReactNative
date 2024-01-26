@@ -16,22 +16,27 @@ export const FlexScreen = () => {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#28C4D0'
+        backgroundColor: '#28C4D0',
+        flexDirection: 'row',
     },
     caja1: {
-        flex:4, //4 + 4+ 2 = 10   4/10  esta tomando un 40% de la pantalla
+        //flex:4, //4 + 4+ 2 = 10   4/10  esta tomando un 40% de la pantalla
+        width: 100,
+        height: 100,
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
     },
     caja2: {
-        flex:4, //4 + 4+ 2 = 10   4/10  esta tomando un 40% de la pantalla
+        width: 100,
+        //flex:4, //4 + 4+ 2 = 10   4/10  esta tomando un 40% de la pantalla
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
     },
     caja3: {
-        flex: 2,    //4 + 4+ 2 = 10   2/10  esta tomando un 20% de la pantalla
+        width: 100,
+        //flex: 2,    //4 + 4+ 2 = 10   2/10  esta tomando un 20% de la pantalla
         borderWidth: 2,
         borderColor: 'white',
         fontSize: 30,
